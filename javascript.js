@@ -20,6 +20,12 @@ function getPlayerChoice(playerChoice) {
   return playerChoice;
 }
 
+function game() {
+
+  let playerCount = 0;
+  let computerCount = 0;
+
+  for(let i = 0; i < 5;  i++) {
 
 function playRound(playerSelection, computerSelection) {
 
@@ -27,24 +33,47 @@ function playRound(playerSelection, computerSelection) {
   console.log("Computer: " + computerSelection);
 
   if (playerSelection === computerSelection) {
-    return "It's a draw.";
+    //return "It's a draw.";
+    playerCount++;
+    computerCount++;
+    return "It's a draw.\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   } else if (playerSelection === "rock" && computerSelection == "scissors") {
-    return "You win! Rock beats scissors.";
+    playerCount++;
+    return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   } else if (playerSelection === "paper" && computerSelection == "rock") {
-  return "You win! Paper beats rock.";
+    playerCount++;
+    return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   } else if (playerSelection === "scissors" && computerSelection == "paper") {
-  return "You win! Scissors beats paper.";
+    playerCount++;
+    return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   } else if (playerSelection === "scissors" && computerSelection == "rock") {
-    return "You lose! Rock beats scissors.";
+    computerCount++;
+    return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   } else if (playerSelection === "rock" && computerSelection == "paper") {
-    return "You lose! Paper beats rock.";
+    computerCount++;
+    return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   } else if (playerSelection === "paper" && computerSelection == "scissors") {
-    return "You lose! Scissors beats paper.";
-  } else {
-    return "Nope";
+    computerCount++;
+    return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
   }
 }
 
-  const playerSelection = getPlayerChoice();
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
+
+}
+
+if (playerCount > computerCount) {
+  return "Player wins the game.";
+} else if (playerCount < computerCount) {
+  return "Computer wins the game.";
+} else if (playerCount === computerCount) {
+  return "Both players scored equally.";
+} else {
+  return "Something went wrong, sorry.";
+}
+
+}
+
+console.log(game());
