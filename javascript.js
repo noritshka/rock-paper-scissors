@@ -27,53 +27,52 @@ function game() {
 
   for(let i = 0; i < 5;  i++) {
 
-function playRound(playerSelection, computerSelection) {
+    function playRound(playerSelection, computerSelection) {
 
-  console.log("Player: " + playerSelection);
-  console.log("Computer: " + computerSelection);
+      console.log("Player: " + playerSelection);
+      console.log("Computer: " + computerSelection);
 
-  if (playerSelection === computerSelection) {
-    //return "It's a draw.";
-    playerCount++;
-    computerCount++;
-    return "It's a draw.\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
-  } else if (playerSelection === "rock" && computerSelection == "scissors") {
-    playerCount++;
-    return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
-  } else if (playerSelection === "paper" && computerSelection == "rock") {
-    playerCount++;
-    return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
-  } else if (playerSelection === "scissors" && computerSelection == "paper") {
-    playerCount++;
-    return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
-  } else if (playerSelection === "scissors" && computerSelection == "rock") {
-    computerCount++;
-    return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
-  } else if (playerSelection === "rock" && computerSelection == "paper") {
-    computerCount++;
-    return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
-  } else if (playerSelection === "paper" && computerSelection == "scissors") {
-    computerCount++;
-    return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      if (playerSelection === computerSelection) {
+        //return "It's a draw.";
+        playerCount++;
+        computerCount++;
+        return "It's a draw.\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      } else if (playerSelection === "rock" && computerSelection == "scissors") {
+        playerCount++;
+        return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      } else if (playerSelection === "paper" && computerSelection == "rock") {
+        playerCount++;
+        return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      } else if (playerSelection === "scissors" && computerSelection == "paper") {
+        playerCount++;
+        return "You win!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      } else if (playerSelection === "scissors" && computerSelection == "rock") {
+        computerCount++;
+        return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      } else if (playerSelection === "rock" && computerSelection == "paper") {
+        computerCount++;
+        return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      } else if (playerSelection === "paper" && computerSelection == "scissors") {
+        computerCount++;
+        return "You lose!\nPlayer Count: " + playerCount + " - Computer Count: " + computerCount;
+      }
+    }
+
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
   }
-}
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-}
-
-if (playerCount > computerCount) {
-  return "Player wins the game.";
-} else if (playerCount < computerCount) {
-  return "Computer wins the game.";
-} else if (playerCount === computerCount) {
-  return "Both players scored equally.";
-} else {
-  return "Something went wrong, sorry.";
-}
-
+  if (playerCount > computerCount) {
+    return "Player wins the game.";
+  } else if (playerCount < computerCount) {
+    return "Computer wins the game.";
+  } else if (playerCount === computerCount) {
+    return "Both players scored equally.";
+  } else {
+    return "Something went wrong, sorry.";
+  }
 }
 
 console.log(game());
